@@ -1,67 +1,71 @@
 // server.js
 
-// Importa as dependências necessárias
 const express = require('express');
-const mysql = require('mysql2/promise'); // versão com Promises
-const bcrypt = require('bcrypt'); // para hash de senha
-const jwt = require('jsonwebtoken'); // para JWT
+const mysql = require('mysql2/promise');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const cors = require('cors');
+require('dotenv').config();
 
 // Configurações do Express
 const app = express();
 app.use(cors());
-app.use(express.json()); // parse JSON do corpo das requisições
+app.use(express.json()); 
 
-// Configurações do banco de dados
+// Configurações do banco de dados via variáveis de ambiente
 const dbConfig = {
-    host: 'localhost',
-    user: 'root',
-    password: 'vini2611',
-    database: 'SportMax',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT, 
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+    ssl: {
+        rejectUnauthorized: false
+    }
 };
 
-const JWT_SECRET = 'seu_segredo_jwt_super_simples_para_poc';
-const PORT = 3000;
 
-// Cria pool de conexões
+const JWT_SECRET = process.env.JWT_SECRET;
+const PORT = process.env.PORT || 3000;
+
+// Cria o pool de conexões do MySQL
 let pool;
-try {
-    pool = mysql.createPool(dbConfig);
-    console.log(`Conectado ao banco de dados MySQL (${dbConfig.database}) com sucesso!`);
-} catch (error) {
-    console.error('Erro ao conectar com o banco de dados MySQL:', error.message);
-    process.exit(1);
-}
+(async () => {
+    try {
+        pool = mysql.createPool(dbConfig);
+        console.log(`Conectado ao banco MySQL remoto (${dbConfig.database}) com sucesso!`);
+    } catch (error) {
+        console.error('Erro ao conectar ao banco remoto:', error.message);
+        process.exit(1);
+    }
+})();
 
-// ---- Rotas da API ----
+// ---------------- ROTAS ---------------------
 
-// Rota de Cadastro (POST /cadastro)
+// Cadastro
 app.post('/cadastro', async (req, res) => {
     console.log('Recebido cadastro:', req.body);
     const { nome, email, senha } = req.body;
 
-    // Validação mínima
     if (!nome || !email || !senha) {
         return res.status(400).json({ message: 'Nome, email e senha são obrigatórios.' });
     }
 
     try {
-        // Verifica se o email já existe
         const [existingUsers] = await pool.query(
             'SELECT IdUsuario FROM cadastro WHERE email = ?',
             [email]
         );
+
         if (existingUsers.length > 0) {
             return res.status(409).json({ message: 'Este email já está cadastrado.' });
         }
 
-        // Hash da senha
         const hashSenha = await bcrypt.hash(senha, 10);
 
-        // Insere o usuário
         const [result] = await pool.query(
             'INSERT INTO cadastro (nome, email, senha) VALUES (?, ?, ?)',
             [nome, email, hashSenha]
@@ -74,11 +78,11 @@ app.post('/cadastro', async (req, res) => {
 
     } catch (error) {
         console.error('Erro ao registrar usuário:', error);
-        res.status(500).json({ message: 'Erro interno no servidor ao tentar registrar.' });
+        res.status(500).json({ message: 'Erro interno ao registrar.' });
     }
 });
 
-// Rota de Login (POST /login)
+// Login
 app.post('/login', async (req, res) => {
     const { email, senha } = req.body;
 
@@ -91,7 +95,6 @@ app.post('/login', async (req, res) => {
             'SELECT IdUsuario, nome, email, senha FROM cadastro WHERE email = ?',
             [email]
         );
-        
 
         if (users.length === 0) {
             return res.status(401).json({ message: 'Email ou senha inválidos.' });
@@ -112,33 +115,33 @@ app.post('/login', async (req, res) => {
 
         res.status(200).json({
             message: 'Login bem-sucedido!',
-            token: token,
+            token,
             IdUsuario: user.IdUsuario,
-            nome: user.nome // adiciona o nome ao retorno
-        });        
+            nome: user.nome
+        });
 
     } catch (error) {
         console.error('Erro ao fazer login:', error);
-        res.status(500).json({ message: 'Erro interno no servidor ao tentar fazer login.' });
+        res.status(500).json({ message: 'Erro interno ao tentar fazer login.' });
     }
 });
 
-// ---- Inicialização do Servidor ----
+// Inicialização do servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
-    console.log(`Endpoints disponíveis:`);
-    console.log(`  POST /cadastro - Cadastra usuário na tabela 'cadastro'`);
-    console.log(`  POST /login    - Efetua login com base na tabela 'cadastro'`);
+    console.log(`Endpoints:`);
+    console.log(`  POST /cadastro`);
+    console.log(`  POST /login`);
 });
 
-// Graceful shutdown
+// Fechamento seguro
 async function closeGracefully(signal) {
-    console.log(`\nRecebido ${signal}. Fechando pool de conexões do MySQL...`);
+    console.log(`\nRecebido ${signal}. Fechando conexões MySQL...`);
     try {
         if (pool) await pool.end();
-        console.log('Pool de conexões do MySQL fechado.');
+        console.log('Conexões fechadas.');
     } catch (err) {
-        console.error('Erro ao fechar o pool de conexões do MySQL:', err);
+        console.error('Erro ao fechar conexões:', err);
     } finally {
         process.exit(0);
     }
