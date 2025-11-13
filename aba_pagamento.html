@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SportMax - Finalizar Compra</title>
+    <link rel="icon" href="./imagem/Logo-icon1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/aba_pagamento.css">
+</head>
+<body>
+
+<header>
+    <div class="barra-inicial">
+        <nav>
+            <a href="./login.html" id="login-link">Entrar</a>   |
+            <a href="./ajuda.html">Ajuda</a>  |
+            <a href="./sobreNos.html">Sobre Nós</a> |
+            <a href="./cadastro_produto.html">Cadastrar produto</a>
+        </nav>
+    </div>
+
+    <div class="cabecalho">
+        <div class="logo">
+            <a href="./index.html"><img src="./imagem/Logo.png" alt="Logo SportMax" class="logo__img" loading="lazy"></a>
+        </div>
+
+        <div class="botao__categorias">
+            <a href="./atalho_roupa.html">Roupas</a>
+            <a href="./atalho_calcado.html">Calçados</a>
+            <a href="./atalho_esporte.html">Esportes</a>
+            <a href="./atalho_futebol.html">Futebol</a>
+            <a href="./atalho_basquete.html">Basquete</a>
+            <a href="./atalho_corrida.html">Corrida</a>
+        </div>
+
+        <div class="container-direita">
+            <input class="botao__pesquisa" type="search" placeholder="Buscar"/>
+            <a href="./favorito.html"><i class="fa-solid fa-heart"></i></a>
+        </div>
+    </div>
+</header>
+
+<main class="main-container">
+    <section class="checkout-section">
+        <h1>Finalizar Compra</h1>
+        <p>Selecione sua forma de pagamento e complete a compra com segurança.</p>
+
+        <div class="payment-options">
+            <label class="payment-option">
+                <input type="radio" name="payment" value="cartao" checked />
+                <span class="payment-label"><i class="fa-brands fa-cc-visa"></i> Cartão de Crédito</span>
+            </label>
+            <label class="payment-option">
+                <input type="radio" name="payment" value="debito" />
+                <span class="payment-label"><i class="fa-brands fa-cc-visa"></i> Cartão de Débito</span>
+            </label>
+            <label class="payment-option">
+                <input type="radio" name="payment" value="pix" />
+                <span class="payment-label"><i class="fa-brands fa-pix"></i> PIX</span>
+            </label>
+            <label class="payment-option">
+                <input type="radio" name="payment" value="boleto" />
+                <span class="payment-label"><i class="fa-solid fa-barcode"></i> Boleto Bancário</span>
+            </label>
+        </div>
+
+        <div class="detalhes-pedido">
+            <h3>Detalhe do Pedido</h3>
+            <div class="itens-pedido"></div> <!-- Container dos produtos -->
+            <div class="total-pedido" style="text-align:right; font-weight:bold; font-size:1.2rem; margin-top:1rem;"></div>
+            
+        </div>
+        <div id="payment-form-container"></div>
+        <button class="btn-confirmar-pagamento">Continuar</button>
+
+
+
+        <div class="checkout-footer">
+            <i class="fa-solid fa-lock"></i> Compra segura com criptografia de dados
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-politica">
+                <h3>Políticas</h3>
+                <ul>
+                    <li><a href="./PoliticaPrivacidade.html">Política de Privacidade</a></li>
+                    <li><a href="./PoliticaPagamento.html">Política de Pagamento</a></li>
+                    <li><a href="./Termos_Condicao.html">Termos e Condições</a></li>
+                    <li><a href="./TermosUso.html">Termos de Uso</a></li>
+                </ul>
+            </div>
+            <div class="footer-ajuda">
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="./ajuda.html">Perguntas Frequentes</a></li>
+                    <li><a href="./ajuda.html">Relatar Problema</a></li>
+                    <li><a href="./ajuda.html">Dúvidas Gerais</a></li>
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="./ajuda.html">Devoluções</a></li>
+                </ul>
+            </div>
+            <div class="footer-contato">
+                <h3>Contato</h3>
+                <p>contato@sportmax.com.br</p>
+                <p>(19) 99725-0283</p>
+            </div>
+            <div class="redes">
+                <div class="rede-sociais">
+                    <h3>Redes Sociais</h3>
+                    <div class="icon-redes">
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="Linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-pagamento">
+            <div class="pagamento">
+                <h3>Formas de Pagamento</h3>
+                <div class="icon_pagamento">
+                    <img src="./imagem/pagina_inicial/mastercard.png" alt="Mastercard" />
+                    <img src="./imagem/pagina_inicial/LogoHipercard.webp" alt="Hipercard" />
+                    <img src="./imagem/pagina_inicial/LogoPix.png" alt="Pix" />
+                    <img src="./imagem/pagina_inicial/LogoVisa.png" alt="Visa" />
+                    <img src="./imagem/pagina_inicial/Logo-Elo.webp" alt="Elo">
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2025 SportMax. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="./JavaScript/aba_pagamento.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nome = localStorage.getItem('nome');
+        const loginLink = document.getElementById('login-link');
+    
+        if (nome && loginLink) {
+            const primeiroNome = nome.split(' ')[0];
+    
+            loginLink.outerHTML = `
+                <div id="user-container" style="position: relative; display: inline-block;">
+                    <a href="javascript:void(0)" id="user-name">
+                        <i class="fa fa-user"></i> Olá, ${primeiroNome}
+                    </a>
+                    <div id="user-menu">
+                        <a href="./perfil.html" class="Perfil"><i class="fa fa-user"></i>Perfil</a>
+                        <hr>
+                        <button id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                    </div>
+                </div>
+            `;
+    
+            const userName = document.getElementById('user-name');
+            const userMenu = document.getElementById('user-menu');
+            const logoutBtn = document.getElementById('logout-btn');
+    
+            // Mostra/oculta o menu quando clicar no nome
+            userName.addEventListener('click', () => {
+                userMenu.style.display = userMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+    
+            // Fecha o menu se clicar fora dele
+            document.addEventListener('click', (e) => {
+                if (!userName.contains(e.target) && !userMenu.contains(e.target)) {
+                    userMenu.style.display = 'none';
+                }
+            });
+    
+            // Função de logout
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('token');
+                localStorage.removeItem('nome');
+                window.location.reload();
+            });
+        }
+    });
+</script>
+</body>
+</html>

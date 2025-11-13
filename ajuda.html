@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./imagem/Logo-icon1.png">
+    <link rel="stylesheet" href="./style/ajuda.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Contato SportMax</title>
+</head>
+<body>
+<header>
+    <div class="cabecalho">
+        <div class="logo">
+            <a href="./index.html"><img src="./imagem/Logo.png" alt="Logo SportMax" class="logo__img" loading="lazy"></a>
+        </div>
+
+            <div class="botao__categorias">
+                <a href="./atalho_roupa.html">Roupas</a>
+                <a href="./atalho_calcado.html">Calçados</a>
+                <a href="./atalho_esporte.html">Esportes</a>
+                <a href="./atalho_futebol.html">Futebol</a>
+                <a href="./atalho_basquete.html">Basquete</a>
+                <a href="./atalho_corrida.html">Corrida</a>
+            </div>
+            
+            
+            <div class="container-direita">
+                <input class="botao__pesquisa" type="search" placeholder="Buscar"/>
+                <a href="./favorito.html"><i class="fa-solid fa-heart"></i></a>
+            </div>
+    </div>
+</header>
+
+<main>
+    <div class="Contato">
+        <h1 class="titulo">Fale conosco</h1>
+        <p class="Informacao">
+            Está com dúvidas ou problemas? Preencha o formulário ou fale conosco pelos canais abaixo.
+        </p>
+
+        <form>
+            <div class="campo">
+                <h6>Informe seu nome</h6>
+                <input type="text" placeholder="Informe seu primeiro nome" required>
+            </div>
+
+            <div class="campo">
+                <h6>Informe seu email</h6>
+                <input type="email" placeholder="Informe seu email" required>
+            </div>
+            
+            <div class="campo">
+            <h6 class="motivo">Motivo</h6>
+            <select name="categoria" id="categoria" required>
+                <option value="" disabled selected>Motivo</option>
+                <option value="Defeito">Produto com defeito</option>
+                <option value="Devolucao">Devolução</option>
+                <option value="Entregue">Produto não entregue</option>
+                <option value="outro">Outro</option>
+            </select>
+            </div>
+        </form>
+        <form>
+
+            <div class="campo">
+                <h6 class="Detalhes">Detalhes adicionais</h6>
+                <textarea placeholder="Descreva sua solicitação detalhadamente" required></textarea>
+            </div>
+
+        </form>
+        <div>
+            <button type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+        </div>
+    </div>
+</main> 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nome = localStorage.getItem('nome');
+        const loginLink = document.getElementById('login-link');
+    
+        if (nome && loginLink) {
+            const primeiroNome = nome.split(' ')[0];
+    
+            loginLink.outerHTML = `
+                <div id="user-container" style="position: relative; display: inline-block;">
+                    <a href="javascript:void(0)" id="user-name">
+                        <i class="fa fa-user"></i> Olá, ${primeiroNome}
+                    </a>
+                    <div id="user-menu">
+                        <button id="logout-btn">Sair <i class="fa-solid fa-right-from-bracket"></i></button>
+                    </div>
+                </div>
+            `;
+    
+            const userName = document.getElementById('user-name');
+            const userMenu = document.getElementById('user-menu');
+            const logoutBtn = document.getElementById('logout-btn');
+    
+            // Mostra/oculta o menu quando clicar no nome
+            userName.addEventListener('click', () => {
+                userMenu.style.display = userMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+    
+            // Fecha o menu se clicar fora dele
+            document.addEventListener('click', (e) => {
+                if (!userName.contains(e.target) && !userMenu.contains(e.target)) {
+                    userMenu.style.display = 'none';
+                }
+            });
+    
+            // Função de logout
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('token');
+                localStorage.removeItem('nome');
+                window.location.reload();
+            });
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aba de compra</title>
+    <link rel="stylesheet" href="style/aba_compra.css">
+    <link rel="icon" href="./imagem/Logo-icon1.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<header>
+    <div class="barra-inicial">
+        <nav>
+            <a href="./login.html" id="login-link">Entrar</a>   |
+            <a href="./ajuda.html">Ajuda</a>  |
+            <a href="./sobreNos.html">Sobre Nós</a> |
+            <a href="./produto.html">Produtos</a>
+        </nav>
+    </div>
+
+    <div class="cabecalho">
+        <div class="logo">
+            <a href="./index.html"><img src="./imagem/Logo.png" alt="Logo SportMax" class="logo__img" loading="lazy"></a>
+        </div>
+
+        <div class="botao__categorias">
+            <a href="./atalho_roupa.html">Roupas</a>
+            <a href="./atalho_calcado.html">Calçados</a>
+            <a href="./atalho_esporte.html">Esportes</a>
+            <a href="./atalho_futebol.html">Futebol</a>
+            <a href="./atalho_basquete.html">Basquete</a>
+            <a href="./atalho_corrida.html">Corrida</a>
+        </div>
+
+        <div class="container-direita">
+            <input class="botao__pesquisa" type="search" placeholder="Buscar"/>
+            <a href="./favorito.html"><i class="fa-solid fa-heart"></i></a>
+            <a href="javascript:void(0)" onclick="toggleCart()"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Contêiner para galeria e detalhes -->
+    <div class="produto-container">
+        <div class="galeria">
+            <div class="miniaturas">
+                <img src="imagem/puma/deviate_nitro_branco/imagem1.avif" onclick="changeImage('imagem/puma/deviate_nitro_branco/imagem1.avif')" alt="Deviate Nitro 3" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_branco/imagem2.avif" onclick="changeImage('imagem/puma/deviate_nitro_branco/imagem2.avif')" alt="Deviate Nitro 3" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_branco/imagem3.avif" onclick="changeImage('imagem/puma/deviate_nitro_branco/imagem3.avif')" alt="Deviate Nitro 3" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_branco/imagem4.avif" onclick="changeImage('imagem/puma/deviate_nitro_branco/imagem4.avif')" alt="Deviate Nitro 3" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_branco/imagem5.avif" onclick="changeImage('imagem/puma/deviate_nitro_branco/imagem5.avif')" alt="Deviate Nitro 3" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_branco/imagem6.avif" onclick="changeImage('imagem/puma/deviate_nitro_branco/imagem6.avif')" alt="Deviate Nitro 3" loading="lazy">
+            </div>
+        </div>
+
+        <div class="imagem-principal">
+            <img id="imagem-principal" src="imagem/puma/deviate_nitro_branco/imagem1.avif" alt="Deviate Nitro 3" loading="lazy">
+        </div>
+
+        <div class="detalhes-produto">
+            <h1>Puma Deviate Nitro</h1>
+            <div class="info">    
+                <p>Calçado</p>
+                <p>Esporte</p>
+                <p>Masculino</p>
+            </div>
+            <h2>R$ 899,90</h2>
+            <p>ou R$ 89,99 em até 10x sem juros</p>
+
+            <div class="cores-container">
+                <img src="imagem/puma/deviate_nitro_branco/imagem1.avif" alt="Branco" onclick="changeColor('branco')" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_preto/imagem1.avif" alt="Preto" onclick="changeColor('preto')" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_azul/imagem1.avif" alt="Azul" onclick="changeColor('azul')" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_amarelo/imagem1.avif" alt="Amarelo" onclick="changeColor('amarelo')" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_laranja/imagem1.avif" alt="Laranja" onclick="changeColor('laranja')" loading="lazy">
+                <img src="imagem/puma/deviate_nitro_rosa/imagem1.avif" alt="Rosa" onclick="changeColor('rosa')" loading="lazy">
+            </div>
+
+            <h3>Selecione um tamanho</h3>
+            <div class="tamanho">
+                <button>34</button>
+                <button>35</button>
+                <button>36</button>
+                <button>37</button>
+                <button>38</button>
+                <button>39</button>
+                <button>40</button>
+                <button>41</button>
+                <button>42</button>
+                <button>43</button>
+                <button>44</button>
+                <button>45</button>
+                <button>46</button>
+            </div>
+
+            <button class="btn-carrinho">Adicionar ao carrinho</button>
+        </div>
+    </div>
+
+    <div class="descricao-produto">
+        <h3>Descrição do produto</h3>
+        <p>
+            O Puma Deviate Nitro oferece amortecimento responsivo para corridas de alta performance. Sua entressola em espuma NITRO proporciona leveza e retorno de energia, enquanto o cabedal respirável mantém os pés frescos e confortáveis.
+        </p>
+        
+        <div class="detalhes-info">
+            <div><strong>Nome:</strong> Puma Deviate Nitro</div>
+            <div><strong>Gênero:</strong> Masculino</div>
+            <div><strong>Origem:</strong> Importado</div>
+            <div><strong>Indicado para:</strong> Corrida e Treinos</div>
+            <div><strong>Marca:</strong> Puma</div>
+        </div>
+    </div>
+    
+
+    <!-- Carrinho -->
+    <div class="carrinho" id="cartSidebar">
+        <div class="carrinho-cabecalho">
+            <h3>Seu Carrinho</h3>
+            <button class="fechar-carrinho" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="items-carrinho" id="cartItems">
+            <p class="carrinho-vazio">Seu carrinho está vazio</p>
+        </div>
+        <div class="carrinho-rodape">
+            <div class="carrinho-total">
+                <strong>Total: R$ <span id="cartTotal">0,00</span></strong>
+            </div>
+            <button class="finalizar-btn" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+    <div class="sobreposicao-carrinho" id="cartOverlay" onclick="toggleCart()"></div>
+</main>
+
+<script>
+//login
+        document.addEventListener('DOMContentLoaded', () => {
+        const nome = localStorage.getItem('nome');
+        const loginLink = document.getElementById('login-link');
+    
+        if (nome && loginLink) {
+            const primeiroNome = nome.split(' ')[0];
+    
+            loginLink.outerHTML = `
+                <div id="user-container" style="position: relative; display: inline-block;">
+                    <a href="javascript:void(0)" id="user-name">
+                        <i class="fa fa-user"></i> Olá, ${primeiroNome}
+                    </a>
+                    <div id="user-menu">
+                        <a href="./perfil.html" class="Perfil"><i class="fa fa-user"></i>Perfil</a>
+                        <hr>
+                        <button id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                    </div>
+                </div>
+            `;
+    
+            const userName = document.getElementById('user-name');
+            const userMenu = document.getElementById('user-menu');
+            const logoutBtn = document.getElementById('logout-btn');
+    
+            // Mostra/oculta o menu quando clicar no nome
+            userName.addEventListener('click', () => {
+                userMenu.style.display = userMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+    
+            // Fecha o menu se clicar fora dele
+            document.addEventListener('click', (e) => {
+                if (!userName.contains(e.target) && !userMenu.contains(e.target)) {
+                    userMenu.style.display = 'none';
+                }
+            });
+    
+            // Função de logout
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('token');
+                localStorage.removeItem('nome');
+                window.location.reload();
+            });
+        }
+    });
+
+        // Selecionar e destacar tamanho
+        const botoesTamanho = document.querySelectorAll('.tamanho button');
+    let tamanhoSelecionado = null;
+
+    botoesTamanho.forEach(botao => {
+        botao.addEventListener('click', () => {
+            // Remove seleção anterior
+            botoesTamanho.forEach(b => b.classList.remove('ativo'));
+            
+            // Marca o novo botão selecionado
+            botao.classList.add('ativo');
+            
+            // Guarda o tamanho selecionado
+            tamanhoSelecionado = botao.textContent;
+
+            console.log('Tamanho selecionado:', tamanhoSelecionado);
+        });
+    });
+
+    function changeImage(src) {
+        document.getElementById('imagem-principal').src = src;
+    }
+
+    function changeColor(cor) {
+        const miniaturas = document.querySelectorAll('.miniaturas img');
+        for (let i = 0; i < miniaturas.length; i++) {
+            miniaturas[i].src = 'imagem/puma/deviate_nitro_' + cor + '/imagem' + (i + 1) + '.avif';
+            miniaturas[i].setAttribute('onclick', "changeImage('imagem/puma/deviate_nitro_" + cor + "/imagem" + (i + 1) + ".avif')");
+        }
+        document.getElementById('imagem-principal').src = 'imagem/puma/deviate_nitro_' + cor + '/imagem1.avif';
+    }
+
+    // carrinho
+    document.addEventListener('DOMContentLoaded', () => {
+    const botaoCarrinho = document.querySelector('.btn-carrinho');
+
+    if (botaoCarrinho) {
+        botaoCarrinho.addEventListener('click', () => {
+            const nome = document.querySelector('.detalhes-produto h1').textContent;
+            const precoTexto = document.querySelector('.detalhes-produto h2').textContent;
+            const preco = parseFloat(precoTexto.replace('R$ ', '').replace(',', '.'));
+            const imagem = document.getElementById('imagem-principal').src;
+
+            // Usa a função global do carrinho.js
+            adicionarAoCarrinho({ nome, preco, imagem });
+
+            // (Opcional) Mostrar o carrinho abrindo
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartOverlay = document.getElementById('cartOverlay');
+            if (cartSidebar && cartOverlay) {
+                cartSidebar.classList.add('open');
+                cartOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+});
+
+</script>
+
+<script src="./JavaScript/carrinho.js"></script>
+</body>
+</html>

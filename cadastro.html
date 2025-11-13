@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="./imagem/Logo-icon1.png">
+<link rel="stylesheet" href="./style/cadastro.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<title>Cadastro SportMax</title>
+</head>
+<body>
+
+<div class="container">
+    <!-- Lado esquerdo com imagem -->
+    <div class="imagem">
+        <img src="./style/Correndo e meditando no estádio do Morumbi - Guia dos Estádios.png" alt="Esporte">
+    </div>
+
+    <!-- Lado direito com formulário -->
+    <div class="formulario">
+        <a href="./index.html" class="home">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <h1 class="titulo">Cadastro</h1>
+        
+        <form id="formCadastro">
+            <div class="campo">
+                <input type="text" id="nome" placeholder="Nome completo" required>
+            </div>
+
+            <div class="campo">
+                <input type="email" id="email" placeholder="E-mail" required>
+            </div>
+
+            <div class="campo">
+                <input type="password" id="senha" placeholder="Senha" required>
+            </div>
+
+            <p>Já tem conta? <a href="./login.html">Faça login</a></p>
+
+            <button type="submit" class="Entrar">Cadastrar</button>
+
+            <div class="divisor">ou</div>
+
+            <div class="login-social">
+                <button class="facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook
+                </button>
+                <button class="google">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.74 1.22 9.27 3.6l6.91-6.91C36.09 2.77 30.39 0 24 0 14.64 0 6.4 5.3 2.56 13.05l8.24 6.4C12.64 12.55 17.88 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.5 24c0-1.57-.14-3.08-.4-4.5H24v9.03h12.68c-.55 2.96-2.2 5.47-4.68 7.15l7.27 5.66C43.33 37.02 46.5 30.98 46.5 24z"/>
+                        <path fill="#FBBC05" d="M11.8 28.45c-.48-1.44-.75-2.97-.75-4.55s.27-3.11.75-4.55l-8.24-6.4C1.38 15.48 0 19.58 0 24s1.38 8.52 3.56 11.55l8.24-6.4z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.92-2.13 15.89-5.79l-7.27-5.66c-2.04 1.38-4.65 2.2-8.62 2.2-6.12 0-11.36-3.05-14.2-7.95l-8.24 6.4C6.4 42.7 14.64 48 24 48z"/>
+                        <path fill="none" d="M0 0h48v48H0z"/>
+                    </svg>
+                    Google
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+const form = document.getElementById('formCadastro');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+
+    try {
+        const res = await fetch('http://localhost:3000/cadastro', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, email, senha })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = './login.html';
+        } else {
+            alert(data.message || 'Erro ao cadastrar');
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Erro de conexão com o servidor');
+    }
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cor-branco: #FFFFFF;
+    --cor-preto: #000000;
+    --cor-cinza-claro: #979797;
+    --cor-cinza-medio: #aaaaaa;
+    --cor-cinza-borda: #bbb;
+    --cor-cinza-texto: #ccc;
+    --cor-cinza-escuro: #777;
+    --cor-cinza-fundo: #333;
+    --cor-azul: #0000FF;
+    --cor-azul-claro: #4c96f5;
+    --cor-azul-medio: #137de8;
+    /* Tipografia */
+    --font-size-botao: 16px;
+    --font-family-principal: 'Inter', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: var(--cor-branco);
+    font-family: var(--font-family-principal);
+}
+
+/* CABEÇALHO */
+
+header {
+    background-color: var(--cor-preto);
+}
+ 
+.barra-inicial{
+    background-color: var(--cor-branco);
+    text-align: right;
+    padding: 0.7%;
+    font-size: 13px;
+    font-family: var(--font-family-principal);
+    padding-right: 5rem;
+}
+ 
+nav a{
+    color: var(--cor-preto);
+    padding: 0.5rem;
+    text-decoration: none;
+}
+ 
+nav a:hover {
+    color: var(--cor-cinza-claro);
+}
+ 
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: var(--font-family-principal);
+}
+ 
+.logo {
+    margin: 0 1rem;
+}
+ 
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo__img {
+    width: 100px;
+}
+
+.botao__categorias {
+    display: block;
+    align-items: center;
+}
+ 
+.botao__categorias a{
+    font-size: var(--font-size-botao);
+    color: var(--cor-branco);
+    padding: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+ 
+.botao__categorias a:hover {
+    padding: 0.7rem 1rem;
+    background-color: var(--cor-azul);
+    border-radius: 20px;
+    font-weight: 600;
+}
+ 
+.botao__pesquisa {
+    max-width: 200px;
+    width: 100%;
+    height: 30px;
+    border-radius: 12px;
+    border: none;
+    padding: 0 1rem;
+}
+
+.botao__pesquisa:focus {
+    outline: none;
+}
+ 
+.container-direita{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+ 
+.container-direita i{
+    font-size: 1.5rem;
+    color: var(--cor-branco);
+    cursor: pointer;
+}
+ 
+.container-direita i:hover{
+    color: var(--cor-azul);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 3rem;
+}
+
+h6 {
+    font-size: 15px;
+}
+
+.Detalhes {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    gap: 100px;
+}
+
+.campo {
+    text-align: left;
+}
+
+.campo input, 
+.campo textarea,
+.campo select{
+    width: 110%;
+    padding: 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family: var(--font-family-principal);
+    border: 1px solid var(--cor-cinza-claro);
+    margin-left: -2px;
+}
+
+.campo textarea {
+    resize: none;
+    width: 820px;
+    height: 120px;
+    margin-top: 1px;
+}
+
+select {
+    width: 200px;
+    height: 50px;
+}
+
+button {
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: 1px solid var(--cor-azul);
+    background-color: var(--cor-branco);
+    color: var(--cor-preto);
+    cursor: pointer;
+    margin: 3rem 0;
+}
+
+button:hover {
+    background-color: var(--cor-azul);
+    color: var(--cor-branco);
+}
+
