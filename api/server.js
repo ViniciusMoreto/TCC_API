@@ -10,36 +10,34 @@ require('dotenv').config();
 // Configurações do Express
 const app = express();
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
-// Configurações do banco de dados via variáveis de ambiente
+// Configurações do banco de dados via variável pública
 const dbConfig = {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    port: process.env.DB_PORT, 
+    port: process.env.DB_PORT,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
-    ssl: {
-        rejectUnauthorized: false
-    }
+    ssl: { rejectUnauthorized: false }
 };
-
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const PORT = process.env.PORT || 3000;
 
-// Cria o pool de conexões do MySQL
 let pool;
 (async () => {
     try {
         pool = mysql.createPool(dbConfig);
-        console.log(`Conectado ao banco MySQL remoto (${dbConfig.database}) com sucesso!`);
-    } catch (error) {
-        console.error('Erro ao conectar ao banco remoto:', error.message);
-        process.exit(1);
+
+        // Teste rápido
+        const [rows] = await pool.query('SELECT 1+1 AS teste');
+        console.log('Conexão OK:', rows);
+    } catch (err) {
+        console.error('Erro de conexão:', err);
     }
 })();
 
@@ -47,7 +45,6 @@ let pool;
 
 // Cadastro
 app.post('/cadastro', async (req, res) => {
-    console.log('Recebido cadastro:', req.body);
     const { nome, email, senha } = req.body;
 
     if (!nome || !email || !senha) {
@@ -129,9 +126,7 @@ app.post('/login', async (req, res) => {
 // Inicialização do servidor
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
-    console.log(`Endpoints:`);
-    console.log(`  POST /cadastro`);
-    console.log(`  POST /login`);
+    console.log(`Endpoints: POST /cadastro | POST /login`);
 });
 
 // Fechamento seguro
