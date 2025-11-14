@@ -68,7 +68,7 @@ const formCadastro = document.getElementById('formCadastro');
 // Define a URL base dependendo do ambiente
 const BASE_URL = window.location.hostname === 'localhost'
     ? 'http://localhost:3000'
-    : 'https://sportmax.vercel.app'; // substitua pela URL do seu back-end no Vercel
+    : 'https://sportmax.vercel.app/api'; // URL do seu back-end no Vercel
 
 formCadastro.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -85,6 +85,7 @@ formCadastro.addEventListener('submit', async (e) => {
         });
 
         const data = await res.json();
+
         if (res.ok) {
             alert('Cadastro realizado com sucesso!');
             window.location.href = './login.html';

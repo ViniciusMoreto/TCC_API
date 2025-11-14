@@ -65,7 +65,7 @@ const formLogin = document.getElementById('formLogin');
 // Define a URL base dependendo do ambiente
 const BASE_URL = window.location.hostname === 'localhost'
     ? 'http://localhost:3000'
-    : 'https://sportmax.vercel.app'; // substitua pela URL do seu back-end no Vercel
+    : 'https://sportmax.vercel.app/api'; // URL do seu back-end no Vercel
 
 formLogin.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -81,10 +81,11 @@ formLogin.addEventListener('submit', async (e) => {
         });
 
         const data = await res.json();
+
         if (res.ok) {
             alert('Login realizado com sucesso!');
             localStorage.setItem('token', data.token);
-            localStorage.setItem('nome', data.nome); // adiciona o nome no localStorage
+            localStorage.setItem('nome', data.nome);
             window.location.href = './index.html';
         } else {
             alert(data.message || 'Erro ao logar');
@@ -95,7 +96,5 @@ formLogin.addEventListener('submit', async (e) => {
     }
 });
 </script>
-
-
 </body>
 </html>
