@@ -63,9 +63,14 @@
 </div>
 
 <script>
-const form = document.getElementById('formCadastro');
+const formCadastro = document.getElementById('formCadastro');
 
-form.addEventListener('submit', async (e) => {
+// Define a URL base dependendo do ambiente
+const BASE_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:3000'
+    : 'https://seu-backend.vercel.app'; // substitua pela URL do seu back-end no Vercel
+
+formCadastro.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const nome = document.getElementById('nome').value;
@@ -73,7 +78,7 @@ form.addEventListener('submit', async (e) => {
     const senha = document.getElementById('senha').value;
 
     try {
-        const res = await fetch('http://localhost:3000/cadastro', {
+        const res = await fetch(`${BASE_URL}/cadastro`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ nome, email, senha })
@@ -91,8 +96,6 @@ form.addEventListener('submit', async (e) => {
         alert('Erro de conexão com o servidor');
     }
 });
-
 </script>
-
 </body>
 </html>
