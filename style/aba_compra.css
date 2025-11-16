@@ -704,11 +704,15 @@ main {
         display: block;
     }
 
-    /* E provavelmente você quer esconder as categorias no mobile */
     .botao__categorias {
         display: none;
     }
+
+    .barra-inicial {
+        display: none; 
+    }
 }
+
 
 @media (max-width: 992px) {
 
