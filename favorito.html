@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style/favorito.css">
+    <link rel="stylesheet" href="./style/carrinho.css">
     <link rel="icon" href="./imagem/Logo-icon1.png">
     <title>Favoritos SportMax</title>
 </head>
@@ -35,9 +36,18 @@
        
         <div class="container-direita">
             <input id="busca" class="botao__pesquisa" type="search" placeholder="Buscar" aria-label="Campo de busca de produtos" />
-            <a href="javascript:void(0)" onclick="toggleCart()"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></a>
+
+            <a href="./favorito.html">
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+            </a>
+
+            <a href="javascript:void(0)" onclick="toggleCart()" class="link-carrinho" aria-label="Abrir carrinho">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                <span id="cartCount" class="cart-count" aria-hidden="true">0</span>
+            </a>
+
             <div class="menu-hamburguer" onclick="abrirMenu()">
-            <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars"></i>
             </div>
         </div>
          
