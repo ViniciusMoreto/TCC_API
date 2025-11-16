@@ -183,3 +183,100 @@ button:hover {
     color: var(--cor-branco);
 }
 
+@media (max-width: 1200px) {
+    form {
+        gap: 60px;
+    }
+
+    .campo textarea {
+        width: 700px;
+    }
+}
+
+@media (max-width: 1024px) {
+    form {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .campo {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .campo input,
+    .campo textarea,
+    .campo select {
+        width: 100%;
+    }
+
+    .campo textarea {
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    main {
+        margin-top: 6rem;
+        height: auto;
+    }
+
+    form {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .campo {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    .campo textarea {
+        width: 100%;
+    }
+
+    .logo__img {
+        width: 70px;
+    }
+
+    .botao__pesquisa {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1rem 0;
+    }
+
+    .container-direita {
+        gap: 10px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    h6 {
+        font-size: 14px;
+    }
+
+    .campo {
+        width: 95%;
+    }
+
+    .campo textarea {
+        height: 140px;
+    }
+
+    button {
+        width: 90%;
+        padding: 14px;
+        font-size: 15px;
+    }
+}

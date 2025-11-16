@@ -581,3 +581,192 @@ footer {
     z-index: 9999;
     pointer-events: none;
 }
+
+@media (max-width: 1200px) {
+
+    .produtos {
+        gap: 40px;
+        margin: 4rem 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .cabecalho {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .botao__categorias {
+        text-align: center;
+    }
+
+    .botao__pesquisa {
+        max-width: 250px;
+    }
+
+    .container-direita {
+        gap: 10px;
+    }
+
+    .produtos {
+        margin: 3rem 2rem;
+        gap: 35px;
+    }
+
+    .card {
+        max-width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .barra-inicial {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo__img {
+        width: 80px;
+    }
+
+    .container-direita i {
+        font-size: 1.3rem;
+    }
+
+    .botao__categorias a {
+        padding: 0.7rem;
+        font-size: 15px;
+    }
+
+    .produtos {
+        margin: 2rem 1rem;
+        gap: 25px;
+    }
+
+    .card h1 {
+        font-size: 1.2rem;
+    }
+
+    .imagem__favorito img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .conatainer-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .icon-redes {
+        gap: 18px;
+    }
+
+    .carrinho {
+        width: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .titulo {
+        margin-top: 1.5rem;
+    }
+
+    .produtos {
+        margin: 1.5rem 0.5rem;
+        gap: 20px;
+    }
+
+    .card {
+        max-width: 90%;
+    }
+
+    .imagem__favorito img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card span {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .cabecalho {
+        padding: 0.5rem 0;
+        gap: 10px;
+    }
+
+    .botao__pesquisa {
+        max-width: 180px;
+        height: 28px;
+    }
+
+    .logo__img {
+        width: 70px;
+    }
+
+    .container-direita i {
+        font-size: 1.2rem;
+    }
+
+    .card {
+        width: 95%;
+        max-width: none;
+        padding-bottom: 1rem;
+    }
+
+    .imagem__favorito img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .card h1 {
+        font-size: 1.1rem;
+    }
+
+    .card button {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 30px 10px 15px;
+    }
+
+    .icon_pagamento img {
+        height: 25px;
+    }
+
+    .direitos {
+        font-size: 0.75rem;
+    }
+
+    .carrinho {
+        width: 260px;
+    }
+
+    .carrinho-cabecalho h3 {
+        font-size: 1.2rem;
+    }
+
+    .carrinho-item-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .finalizar-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}

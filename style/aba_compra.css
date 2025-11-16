@@ -520,3 +520,160 @@ main {
 .btn-carrinho:hover {
     background-color: var(--cor-azul);
 }
+
+@media (max-width: 1200px) {
+    .produto-container {
+        gap: 30px;
+    }
+
+    .imagem-principal img {
+        width: 90%;
+    }
+
+    .detalhes-produto {
+        width: 30%;
+        margin-right: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .produto-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .miniaturas {
+        flex-direction: row;
+        margin: 0;
+        gap: 15px;
+    }
+
+    .miniaturas img {
+        margin: 0;
+        width: 55px;
+    }
+
+    .imagem-principal img {
+        width: 70%;
+        margin-left: 0;
+    }
+
+    .detalhes-produto {
+        width: 80%;
+        margin: 0;
+        text-align: center;
+    }
+
+    .cores-container,
+    .tamanho {
+        justify-content: center;
+    }
+
+    .descricao-produto {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    main {
+        margin-top: 20px;
+    }
+
+    .produto-container {
+        gap: 20px;
+    }
+
+    .miniaturas img {
+        width: 50px;
+    }
+
+    .imagem-principal img {
+        width: 82%;
+    }
+
+    .detalhes-produto h1 {
+        font-size: 20px;
+    }
+
+    .detalhes-produto h2 {
+        font-size: 26px;
+    }
+
+    .descricao-produto {
+        padding: 15px;
+    }
+
+    .detalhes-info {
+        gap: 15px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .barra-inicial {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .logo__img {
+        width: 70px;
+    }
+
+    .produto-container {
+        gap: 15px;
+    }
+
+    .miniaturas img {
+        width: 45px;
+    }
+
+    .imagem-principal img {
+        width: 90%;
+    }
+
+    .detalhes-produto h1 {
+        font-size: 18px;
+    }
+
+    .detalhes-produto h2 {
+        font-size: 22px;
+    }
+
+    .tamanho button {
+        padding: 8px 10px;
+    }
+
+    .descricao-produto {
+        width: 95%;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .produto-container {
+        gap: 10px;
+    }
+
+    .miniaturas img {
+        width: 40px;
+    }
+
+    .imagem-principal img {
+        width: 95%;
+    }
+
+    .cores-container img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .descricao-produto h3 {
+        font-size: 20px;
+    }
+
+    .descricao-produto p {
+        font-size: 14px;
+    }
+}

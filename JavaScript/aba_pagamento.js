@@ -110,3 +110,87 @@ function gerarQRCodePix(){
     const pixText = "00020126580014BR.GOV.BCB.PIX0136524933328145204000053039865406399.905802BR5920Vinícius Modesto Moreto6009Piracicaba62070503***6304ABCD";
     QRCode.toCanvas(canvas, pixText, { width: 200 }, function(error){ if(error) console.error(error); });
 }
+
+//CEP AUTOMÁTICO
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cepInput = document.getElementById("cep");
+    cepInput.addEventListener("input", () => {
+        cepInput.value = cepInput.value.replace(/\D/g, "")
+                                       .replace(/(\d{5})(\d)/, "$1-$2");
+    });
+
+    cepInput.addEventListener("blur", () => {
+        const cep = cepInput.value.replace(/\D/g, "");
+        if (cep.length !== 8) {
+            return;
+        }
+
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(response => response.json())
+            .then(dados => {
+                if (dados.erro) {
+                    alert("CEP não encontrado.");
+                    return;
+                }
+
+                document.getElementById("logradouro").value = dados.logradouro;
+                document.getElementById("bairro").value = dados.bairro;
+                document.getElementById("localidade").value = dados.localidade;
+                document.getElementById("uf").value = dados.uf;
+            })
+            .catch(() => {
+                alert("Erro ao buscar o CEP. Tente novamente.");
+            });
+    });
+});
+
+// --- COLOQUE ISSO APÓS AS SUAS DECLARAÇÕES EXISTENTES ---
+const enderecoDiv = document.querySelector('.endereco');
+
+// Esconder endereço ao iniciar (mantendo o CEP intacto)
+if (enderecoDiv) {
+    enderecoDiv.style.display = 'none';
+}
+
+// Ajusta comportamento do botão Continuar / Confirmar
+paymentButton.addEventListener('click', () => {
+    // 1) Se o endereço ainda estiver escondido: mostrar o endereço e parar aqui
+    if (enderecoDiv && (enderecoDiv.style.display === 'none' || enderecoDiv.style.display === '')) {
+        enderecoDiv.style.display = 'block';
+        paymentButton.textContent = 'Continuar'; // mantém rótulo claro
+        // opcional: rolar até o endereço para melhor UX
+        enderecoDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return; // só mostrar endereço nessa primeira ação
+    }
+
+    // 2) Se o endereço já está visível, seguir com o fluxo anterior:
+    if (stage === 0) {
+        // mostra o formulário conforme a opção de pagamento selecionada
+        if (selectedPayment === 'cartao' || selectedPayment === 'debito') {
+            formContainer.innerHTML = `
+                <div class="card-info">
+                    <input type="text" placeholder="Nome no cartão" required />
+                    <input type="text" placeholder="Número do cartão" maxlength="16" required />
+                    <input type="text" placeholder="Validade (MM/AA)" required />
+                    <input type="text" placeholder="CVC" maxlength="3" required />
+                    <input type="text" placeholder="CPF" required />
+                </div>`;
+        } else if (selectedPayment === 'pix') {
+            formContainer.innerHTML = `
+                <div class="pix-info">
+                    <p>Escaneie o QR Code abaixo para pagar:</p>
+                    <canvas id="qrcode"></canvas>
+                </div>`;
+            gerarQRCodePix();
+        } else if (selectedPayment === 'boleto') {
+            formContainer.innerHTML = `<p>O boleto será gerado após a confirmação do pagamento.</p>`;
+        }
+        paymentButton.textContent = 'Confirmar Pagamento';
+        stage = 1;
+    } else {
+        // etapa de confirmação final
+        confirmarPagamento();
+    }
+});
+

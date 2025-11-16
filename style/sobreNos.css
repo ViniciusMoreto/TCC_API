@@ -363,3 +363,133 @@ footer {
     color: var(--cor-cinza-escuro);
     font-size: 0.85rem;
 }
+
+@media (max-width: 1024px) {
+
+    .cabecalho {
+        padding: 0 0.5rem;
+    }
+
+    .botao__categorias a {
+        padding: 0.7rem;
+        font-size: 15px;
+    }
+
+    .sobre-nos {
+        padding: 50px 20px;
+    }
+
+    .sobre-nos__container {
+        max-width: 700px;
+    }
+
+    .sobre-nos__container h1 {
+        font-size: 2.2rem;
+    }
+
+    .sobre-nos__container p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .barra-inicial {
+        padding-right: 1rem;
+        font-size: 12px;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .logo__img {
+        width: 80px;
+    }
+
+    .container-direita {
+        gap: 10px;
+    }
+
+    .botao__pesquisa {
+        max-width: 160px;
+        height: 28px;
+    }
+
+    .sobre-nos {
+        padding: 40px 15px;
+    }
+
+    .sobre-nos__container h1 {
+        font-size: 2rem;
+    }
+
+    .sobre-nos__container p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .sobre-nos__imagem img {
+        max-height: 300px;
+    }
+
+    .conatainer-footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .pagamento-footer h3 {
+        font-size: 0.9rem;
+    }
+
+    .icon_pagamento img {
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .cabecalho {
+        gap: 10px;
+    }
+
+    .botao__categorias a {
+        padding: 0.5rem;
+        font-size: 14px;
+    }
+
+    .container-direita i {
+        font-size: 1.2rem;
+    }
+
+    .logo__img {
+        width: 70px;
+    }
+
+    .sobre-nos__container h1 {
+        font-size: 1.7rem;
+    }
+
+    .sobre-nos__container p {
+        font-size: 0.9rem;
+    }
+
+    .sobre-nos__frase-final {
+        font-size: 1rem;
+    }
+
+    .sobre-nos__imagem img {
+        max-height: 250px;
+    }
+
+    .icon_pagamento img {
+        height: 22px;
+    }
+
+    .direitos {
+        font-size: 0.75rem;
+    }
+}

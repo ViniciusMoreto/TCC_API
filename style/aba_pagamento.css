@@ -149,7 +149,7 @@ nav a:hover {
 #user-menu hr {
     margin: 0;
     border: none;
-    border-top: 1px solid var(--cor-cinza);
+    border-top: 1px solid var(--cor-cinza-escuro);
 }
 
 #user-menu button {
@@ -181,7 +181,7 @@ nav a:hover {
     padding: 20px;
     display: flex;
     justify-content: center;
-    font-family: var(--font-family-principal);
+    font-family: var(--font-principal);
 }
 
 .checkout-section {
@@ -198,7 +198,6 @@ nav a:hover {
     color: var(--cor-preto);
     margin-bottom: 10px;
     text-align: center;
-    font-family: var(--font-family-principal);
 }
 
 .checkout-section p {
@@ -206,7 +205,6 @@ nav a:hover {
     color: var(--cor-cinza);
     margin-bottom: 25px;
     font-size: 1rem;
-    font-family: var(--font-family-principal);
 }
 
 .payment-options {
@@ -249,6 +247,62 @@ nav a:hover {
     color: #0057b8;
 }
 
+.endereco {
+   
+    margin-top: 2rem;
+    background: #ffffff;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+}
+
+.endereco h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.campo-endereco {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.campo-endereco label {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.campo-endereco input {
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.2s;
+    background-color: #fafafa;
+}
+
+.campo-endereco input:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.2);
+}
+
+.campo-endereco input[readonly] {
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .endereco {
+        padding: 1.2rem;
+    }
+}
+
 .card-info input, .pix-info p {
     display: block;
     width: 100%;
@@ -257,7 +311,6 @@ nav a:hover {
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 1rem;
-    font-family: var(--font-family-principal);
 }
 
 #qrcode {
@@ -273,7 +326,6 @@ nav a:hover {
 /*DETALHES DO PEDIDO*/
 
 .detalhes-pedido {
-    font-family: var(--font-family-principal);
     background: var(--cor-branco);
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -284,7 +336,6 @@ nav a:hover {
 }
 
 .detalhes-pedido h3 {
-    font-family: var(--font-family-principal);
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -309,7 +360,6 @@ nav a:hover {
     background: #f9f9f9;
     padding: 10px 15px;
     border-radius: 8px;
-    font-family: var(--font-family-principal);
     color: var(--cor-preto);
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
@@ -341,7 +391,6 @@ nav a:hover {
     display: flex;
     gap: 20px;
     font-size: 0.95rem;
-    font-family: var(--font-family-principal);
 }
 
 /* Preço unitário e quantidade com label */
@@ -349,16 +398,14 @@ nav a:hover {
 .item-info .item-quantidade {
     color: var(--cor-preto);
     font-weight: 500;
-    font-family: var(--font-family-principal);
 }
 
 /* Total geral */
 .total-pedido {
-    font-weight: 700;
+    font-weight: 200;
     font-size: 1.2rem;
     text-align: center;
     color: var(--cor-preto);
-    font-family: var(--font-family-principal);
 }
 
 /* BOTÃO FINALIZAR */
@@ -401,7 +448,7 @@ footer {
     background: var(--cor-footer-bg);
     color: var(--cor-footer-texto);
     padding: 40px 20px 20px;
-    font-family: var(--font-family-principal);
+    font-family: var(--font-principal);
 }
 
 .footer-content {
@@ -514,3 +561,106 @@ footer {
     color: #777;
     font-size: 0.85rem;
 }
+
+@media (max-width: 1024px) {
+    .main-container {
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .checkout-section,
+    .detalhes-pedido {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .item-pedido img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .checkout-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .item-pedido {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .item-info .item-detalhes {
+        flex-direction: column;
+        gap: 5px;
+        font-size: 0.9rem;
+    }
+
+    .item-pedido img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .campo-endereco input {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .btn-confirmar-pagamento {
+        font-size: 1rem;
+        padding: 0.9rem;
+    }
+
+    .detalhes-pedido {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .main-container {
+        margin: 10px auto;
+        padding: 0;
+    }
+
+    .checkout-section,
+    .detalhes-pedido {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .checkout-section h1 {
+        font-size: 1.2rem;
+    }
+
+    .payment-option {
+        padding: 12px;
+    }
+
+    .item-pedido {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .item-pedido img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .item-info .item-detalhes {
+        font-size: 0.85rem;
+    }
+
+    .total-pedido {
+        font-size: 1.1rem;
+    }
+
+    .btn-confirmar-pagamento {
+        font-size: 0.95rem;
+        padding: 0.8rem;
+    }
+}
+

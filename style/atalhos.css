@@ -684,3 +684,158 @@ footer {
     color: var(--cor-cinza-escuro);
     font-size: 0.85rem;
 }
+
+@media (max-width: 1024px) {
+
+    .cabecalho {
+        padding: 0 1rem;
+        gap: 10px;
+    }
+
+    .logo__img {
+        width: 85px;
+    }
+
+    .flex-container {
+        grid-template-columns: 230px 1fr;
+        padding: 1.5rem;
+    }
+
+    #products-container img {
+        height: 150px;
+        width: 100%;
+    }
+
+    #products-container > div {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 820px) {
+
+    /* Cabeçalho reorganiza */
+    .cabecalho {
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 15px;
+    }
+
+    .container-direita {
+        gap: 10px;
+    }
+
+    .botao__pesquisa {
+        max-width: 90%;
+    }
+
+    /* Layout vira 1 coluna */
+    .flex-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    #filter-aside {
+        position: relative;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .carrinho {
+        width: 330px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .barra-inicial {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .cabecalho {
+        gap: 10px;
+    }
+
+    .logo__img {
+        width: 70px;
+    }
+
+    #products-container {
+        grid-template-columns: 1fr;
+    }
+
+    #products-container img {
+        height: 160px;
+        width: 100%;
+    }
+
+    #products-container > div {
+        max-width: 100%;
+    }
+
+    .imagem__favorito i {
+        font-size: 1.3rem;
+    }
+
+    /* Carrinho full-screen no mobile */
+    .carrinho {
+        width: 100%;
+        right: -100%;
+    }
+
+    .carrinho.open {
+        right: 0;
+    }
+
+    .carrinho-cabecalho {
+        padding: 1.5rem;
+    }
+
+    .carrinho-item-image {
+        width: 55px;
+        height: 55px;
+    }
+
+    footer {
+        padding: 40px 15px;
+    }
+
+    .conatainer-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 430px) {
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .logo__img {
+        width: 60px;
+    }
+
+    #products-container img {
+        height: 140px;
+    }
+
+    .btn-carrinho {
+        font-size: 0.9rem;
+        height: 35px;
+    }
+
+    .carrinho-item-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .quantidade-btn {
+        width: 28px;
+        height: 28px;
+    }
+}

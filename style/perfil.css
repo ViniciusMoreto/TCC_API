@@ -380,6 +380,26 @@ footer {
     font-size: 0.85rem;
 }
 
+@media (max-width: 1024px) {
+    .cabecalho {
+        padding: 0 0.5rem;
+    }
+
+    .botao__categorias a {
+        padding: 0.8rem;
+        font-size: 14px;
+    }
+
+    .perfil-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .perfil-header {
+        padding: 10px 20px;
+    }
+}
+
 /* Responsivo */
 @media(max-width: 900px) {
     .perfil-container {
@@ -387,8 +407,149 @@ footer {
     }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 768px) {
+    .barra-inicial {
+        text-align: center;
+        padding-right: 0;
+        font-size: 12px;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .container-direita {
+        gap: 10px;
+    }
+
+    .botao__pesquisa {
+        max-width: 100%;
+        width: 90%;
+        height: 32px;
+    }
+
+    .perfil-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .perfil-avatar {
+        width: 75px;
+        height: 75px;
+        font-size: 28px;
+    }
+
+    .perfil-info h2 {
+        font-size: 22px;
+    }
+
+    .perfil-info p {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+
+    .conatainer-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .icon_pagamento img {
+        height: 25px;
+    }
+}
+
+@media (max-width: 600px) {
     .perfil-container {
         grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .perfil-header {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .perfil-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 26px;
+    }
+
+    .perfil-info h2 {
+        font-size: 20px;
+    }
+
+    .perfil-info p {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo__img {
+        width: 80px;
+    }
+
+    .botao__pesquisa {
+        height: 28px;
+        font-size: 13px;
+        padding: 0 0.8rem;
+    }
+
+    .container-direita i {
+        font-size: 1.3rem;
+    }
+
+    .perfil-header {
+        padding: 15px;
+    }
+
+    .perfil-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 22px;
+    }
+
+    .perfil-info h2 {
+        font-size: 18px;
+    }
+
+    .perfil-info p {
+        font-size: 13px;
+    }
+
+    .card h3 {
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 13px;
+    }
+
+    footer {
+        padding: 25px 10px;
+    }
+
+    .icon_pagamento img {
+        height: 22px;
+        margin: 0 5px;
+    }
+
+    .direitos {
+        font-size: 0.75rem;
     }
 }

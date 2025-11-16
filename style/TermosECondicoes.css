@@ -367,3 +367,165 @@ footer {
     color: var(--cor-cinza-escuro);
     font-size: 0.85rem;
 }
+
+@media (max-width: 1024px) {
+
+    .cabecalho {
+        padding: 0 0.5rem;
+    }
+
+    .botao__categorias a {
+        padding: 0.8rem;
+        font-size: 14px;
+    }
+
+    .abas {
+        max-width: 750px;
+    }
+
+    .conteudo-aba {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .barra-inicial {
+        text-align: center;
+        padding-right: 0;
+        font-size: 12px;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        gap: 15px;
+        padding: 12px 0;
+    }
+
+    .botao__pesquisa {
+        max-width: 90%;
+        width: 90%;
+        height: 32px;
+    }
+
+    .abas {
+        max-width: 90%;
+        margin: 1.5rem auto;
+    }
+
+    .abas-cabecalho {
+        flex-direction: column;
+    }
+
+    .botao-aba {
+        font-size: 15px;
+        padding: 0.8rem;
+    }
+
+    .conteudo-aba h1 {
+        font-size: 1.7rem;
+    }
+
+    .conteudo-aba p,
+    .conteudo-aba ul {
+        font-size: 15px;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+
+    .conatainer-footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .icon_pagamento img {
+        height: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+        gap: 12px;
+    }
+
+    .logo__img {
+        width: 85px;
+    }
+
+    .container-direita i {
+        font-size: 1.3rem;
+    }
+
+    .abas {
+        width: 95%;
+    }
+
+    .botao-aba {
+        font-size: 14px;
+        padding: 0.7rem;
+    }
+
+    .conteudo-aba {
+        padding: 1.3rem;
+    }
+
+    .conteudo-aba h1 {
+        font-size: 1.5rem;
+    }
+
+    .conteudo-aba h2 {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+    }
+
+    footer {
+        padding: 25px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo__img {
+        width: 75px;
+    }
+
+    .cabecalho {
+        padding: 10px 0;
+    }
+
+    .botao__pesquisa {
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .botao-aba {
+        padding: 0.6rem;
+        font-size: 13px;
+    }
+
+    .conteudo-aba {
+        padding: 1rem;
+    }
+
+    .conteudo-aba h1 {
+        font-size: 1.3rem;
+    }
+
+    .conteudo-aba p,
+    .conteudo-aba ul {
+        font-size: 14px;
+    }
+
+    .icon_pagamento img {
+        height: 22px;
+        margin: 0 5px;
+    }
+
+    .direitos {
+        font-size: 0.75rem;
+    }
+}
