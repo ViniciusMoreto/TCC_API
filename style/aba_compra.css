@@ -10,6 +10,7 @@
     --font-family: 'Inter', sans-serif;
     --color-botao-hover: #0000FF;
     --cinza-claro: #979797;
+    --cor-cinza-escuro: #777;
     --azul-claro: #4c96f5;
     --cor-azul: #0000FF;
 }
@@ -24,7 +25,7 @@ body {
 /* CABEÇALHO */
 
 header {
-    background-color: var(--cor-cabecalho);
+    background-color: var(--preto-principal);
 }
  
 .barra-inicial{
@@ -72,7 +73,7 @@ nav a:hover {
 }
  
 .botao__categorias a{
-    font-size: 16px;
+    font-size: var(--font-size-botao);
     color: var(--branco-principal);
     padding: 1rem;
     text-decoration: none;
@@ -112,7 +113,7 @@ nav a:hover {
 }
  
 .container-direita i:hover{
-    color: var(--color-botao-hover);
+    color: var(--cor-azul);
 }
 
 #user-menu {
@@ -144,7 +145,7 @@ nav a:hover {
 #user-menu hr {
     margin: 0;
     border: none;
-    border-top: 1px solid var(--cinza-claro);
+    border-top: 1px solid var(--cor-cinza-escuro);
 }
 
 #user-menu button {
@@ -521,6 +522,168 @@ main {
     background-color: var(--cor-azul);
 }
 
+/* MENU HAMBÚRGUER */
+.menu-hamburguer {
+  display: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: var(--cor-branco);
+  margin-left: 10px; /* reduz espaço entre ícones */
+}
+ 
+.menu-hamburguer:hover {
+  color: var(--cor-azul);
+}
+
+/* MENU LATERAL */
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 270px;
+  height: 100%;
+  background-color: var(--branco-principal);
+  color: var(--preto-principal);
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+ 
+.menu-lateral.aberto {
+  right: 0;
+}
+ 
+/* LISTA DE LINKS */
+.menu-lateral ul {
+    list-style: none;
+    padding: 0 1.5rem;
+}
+ 
+.menu-lateral ul li {
+    margin: 20px 0;
+}
+ 
+.menu-lateral ul li a {
+    color: var(--preto-principal);
+    text-decoration: none;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+}
+ 
+.menu-lateral ul li a::after {
+    content: ">";
+    font-weight: 300;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+ 
+.menu-entrar {
+    padding: 5vh 1.5rem;
+}
+ 
+.botao-entrar {
+  background-color: var(--preto-principal);
+  color: var(--branco-principal);
+  border: none;
+  width: 33%;
+  padding: 10px 0;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+ 
+/* FUNDO ESCURO */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 2500;
+}
+ 
+.menu-overlay.ativo {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Área do usuário no mobile */
+.mobile-user-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Botão principal */
+.mobile-user-btn {
+    background: none;
+    border: none;
+    color: var(--preto-principal);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+    justify-content: flex-start;
+}
+
+.mobile-user-btn i {
+    font-size: 1.1rem;
+}
+
+/* Seta animada */
+.seta-mobile {
+    margin-left: auto;
+    transition: transform .3s ease;
+}
+.seta-mobile.girar {
+    transform: rotate(180deg);
+}
+
+/* Dropdown */
+.mobile-user-dropdown {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 26px;
+    margin-top: 5px;
+}
+
+.mobile-user-dropdown.open {
+    display: flex;
+}
+
+/* Links do dropdown */
+.mobile-user-dropdown a,
+.mobile-user-dropdown button {
+    color: var(--preto-principal);
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 6px 0;
+    text-align: left;
+}
+
+.mobile-user-dropdown button {
+    width: 100%;
+}
+
 @media (max-width: 1200px) {
     .produto-container {
         gap: 30px;
@@ -533,6 +696,17 @@ main {
     .detalhes-produto {
         width: 30%;
         margin-right: 40px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .menu-hamburguer {
+        display: block;
+    }
+
+    /* E provavelmente você quer esconder as categorias no mobile */
+    .botao__categorias {
+        display: none;
     }
 }
 
