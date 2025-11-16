@@ -346,42 +346,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const nome = localStorage.getItem('nome');
     const menuEntrar = document.querySelector('.menu-entrar');
 
-    // Se o usuário estiver logado...
     if (nome && menuEntrar) {
         const primeiroNome = nome.split(' ')[0];
 
-        // Substitui o "Entrar" apenas no menu hambúrguer
         menuEntrar.innerHTML = `
-            <div id="mobile-user-container" style="display: flex; flex-direction: column; gap: 5px;">
-                <button id="mobile-user-button" style="background: none; border: none; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-                    <i class="fa fa-user"></i> Olá, ${primeiroNome}
+            <div class="mobile-user-area">
+                <button id="mobile-user-button" class="mobile-user-btn">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Olá, ${primeiroNome}</span>
+                    <i class="fa-solid fa-chevron-down seta-mobile"></i>
                 </button>
 
-                <div id="mobile-user-menu" style="display: none; flex-direction: column; gap: 8px; margin-left: 5px;">
-                    <a href="./perfil.html" style="font-size: 1rem; display: flex; align-items: center; gap: 6px;">
-                        <i class="fa fa-user"></i> Perfil
+                <div id="mobile-user-menu" class="mobile-user-dropdown">
+                    <a href="./perfil.html">
+                        <i class="fa-regular fa-user"></i> Perfil
                     </a>
-                    <button id="mobile-logout-btn" style="background: none; border: none; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                    <button id="mobile-logout-btn">
                         <i class="fa-solid fa-right-from-bracket"></i> Sair
                     </button>
                 </div>
             </div>
         `;
 
-        // Abre/fecha submenu ao clicar no nome
-        const mobileUserButton = document.getElementById('mobile-user-button');
-        const mobileUserMenu = document.getElementById('mobile-user-menu');
+        const btn = document.getElementById('mobile-user-button');
+        const dropdown = document.getElementById('mobile-user-menu');
+        const seta = document.querySelector('.seta-mobile');
+        const logoutBtn = document.getElementById('mobile-logout-btn');
 
-        mobileUserButton.addEventListener('click', () => {
-            mobileUserMenu.style.display =
-                mobileUserMenu.style.display === 'none' ? 'flex' : 'none';
+        btn.addEventListener('click', () => {
+            dropdown.classList.toggle('open');
+            seta.classList.toggle('girar');
         });
 
-        // Botão de logout
-        const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
-        mobileLogoutBtn.addEventListener('click', () => {
-            localStorage.removeItem('token');
-            localStorage.removeItem('nome');
+        logoutBtn.addEventListener('click', () => {
+            localStorage.clear();
             window.location.reload();
         });
     }
