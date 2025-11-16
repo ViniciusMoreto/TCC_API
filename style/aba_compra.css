@@ -527,7 +527,7 @@ main {
   display: none;
   cursor: pointer;
   font-size: 1.8rem;
-  color: var(--cor-branco);
+  color: var(--branco-principal);
   margin-left: 10px; /* reduz espaço entre ícones */
 }
  
@@ -684,21 +684,6 @@ main {
     width: 100%;
 }
 
-@media (max-width: 1200px) {
-    .produto-container {
-        gap: 30px;
-    }
-
-    .imagem-principal img {
-        width: 90%;
-    }
-
-    .detalhes-produto {
-        width: 30%;
-        margin-right: 40px;
-    }
-}
-
 @media (max-width: 1030px) {
     .menu-hamburguer {
         display: block;
@@ -713,6 +698,20 @@ main {
     }
 }
 
+@media (max-width: 1200px) {
+    .produto-container {
+        gap: 30px;
+    }
+
+    .imagem-principal img {
+        width: 90%;
+    }
+
+    .detalhes-produto {
+        width: 30%;
+        margin-right: 40px;
+    }
+}
 
 @media (max-width: 992px) {
 
