@@ -54,7 +54,7 @@
          
         <div id="menu-lateral" class="menu-lateral">
             <div class="menu-entrar">
-                <button class="botao-entrar" onclick="entrarConta()">Entrar</button>
+                <button class="botao-entrar">Entrar</button>
             </div>
            
         <ul>
@@ -306,6 +306,19 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.clear();
             window.location.reload();
         });
+    }
+});
+
+// Função global para abrir login
+function entrarConta() {
+    window.location.href = "./login.html";
+}
+
+// Adiciona o evento ao botão do menu hambúrguer
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoEntrarHamburguer = document.querySelector('.menu-entrar .botao-entrar');
+    if (botaoEntrarHamburguer) {
+        botaoEntrarHamburguer.addEventListener('click', entrarConta);
     }
 });
 </script>
