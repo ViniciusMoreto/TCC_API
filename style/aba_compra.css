@@ -13,6 +13,7 @@
     --cor-cinza-escuro: #777;
     --azul-claro: #4c96f5;
     --cor-azul: #0000FF;
+    --cor-azul-medio: #137de8;
 }
 
 body {
@@ -286,6 +287,23 @@ main {
     background-color: #007bff;
     color: white;
     border-color: #0056b3;
+}
+
+.btn-carrinho{
+    background-color: var(--cor-azul);
+    height: 37px;
+    border: none;
+    width: 100%;
+    color: var(--branco-principal);
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: var(--font-family-principal);
+    margin-top: 2rem;
+}
+
+.btn-carrinho:hover {
+    background-color: var(--cor-azul-medio);
 }
 
 .descricao-produto {

@@ -276,7 +276,7 @@ nav a:hover {
     }
 }
 
-/* CARD DE PRODUTO */
+/* CARD */
 #products-container > div {
     background: var(--cor-branco);
     border-radius: 1rem;
@@ -285,8 +285,22 @@ nav a:hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
-    max-width: 350px;
-    margin: 10 auto;
+    max-width: 100%;
+    height: 350px;  /* ALTURA FIXA DOS CARDS */
+    justify-content: flex-start;
+}
+
+#products-container img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.p-4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* mantém distância perfeita */
 }
 
 #products-container > div:hover {
@@ -294,28 +308,21 @@ nav a:hover {
     box-shadow: 0 4px 16px var(--sombra);
 }
 
-#products-container img {
-    width: 350px;
-    height: 170px;
-    object-fit: contain;
-}
-
-#products-container .p-4 {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-}
-
 #products-container h3 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.4rem;
+    min-height: 48px; /* controla até 2 linhas */
+    display: flex;
+    align-items: flex-start;
+    margin-left: 1rem;
 }
 
 #products-container p {
     color: #666;
     font-size: 0.9rem;
     margin-bottom: 0.8rem;
+    margin-left: 1rem;
 }
 
 #products-container span {
@@ -331,20 +338,21 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: auto;
+    width: 100%;
 }
 
 .btn-carrinho{
     background-color: var(--cor-azul);
     height: 37px;
     border: none;
-    width: 100%;
+    width: 85%;
     color: var(--cor-branco);
     font-weight: 600;
     border-radius: 50px;
     cursor: pointer;
-    margin-left: 1rem;
     font-family: var(--font-family-principal);
+    margin-bottom: 1rem;
 }
 
 .btn-carrinho:hover {
@@ -356,6 +364,12 @@ span {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.imagem__favorito img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
 }
 
 .imagem__favorito i {
