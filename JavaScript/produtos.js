@@ -129,7 +129,7 @@ const products = [
     { id: 20, 
     name: "Mini Trave Profissional Goool90 Master Fácil Esporte Contém 1 Trava + 1 Rede de Nylon - Tam. 90x60", 
     price: 399.90, 
-    image: "imagem/atalho_futebol/Mini-Trave-Profissional-Goool90-Master-Fácil-Esporte-Contém-1-Trava-+-1-Rede-de-Nylon-Tam-90x60.png", 
+    image: "imagem/atalho_futebol/Mini-Trave-Profissional.png", 
     alt: "Mini Trave Profissional Goool90 Master Fácil Esporte Contém 1 Trava + 1 Rede de Nylon - Tam. 90x60" },
 
   { id: 21, 
