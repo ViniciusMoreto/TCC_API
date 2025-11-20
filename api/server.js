@@ -1,3 +1,5 @@
+// Garantir que este arquivo é CommonJS
+
 // server.js
 
 const express = require('express');
