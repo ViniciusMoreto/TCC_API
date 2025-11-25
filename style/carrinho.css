@@ -220,7 +220,7 @@
 /* Imagem voando para o carrinho */
 .imagem-voadora {
     position: fixed; /* usar fixed para evitar problemas de scroll */
-    width: 80px;     /* tamanho inicial da imagem */
+    width: 80px;    
     height: 80px;
     border-radius: 8px;
     z-index: 9999;

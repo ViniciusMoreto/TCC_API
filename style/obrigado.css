@@ -149,7 +149,7 @@ nav a:hover {
 }
 
 .thank-you button {
-    background: #4c96f5; /* cor-azul */
+    background: #4c96f5;
     color: #ffffff;
     border: none;
     padding: 14px 25px;
@@ -160,7 +160,7 @@ nav a:hover {
 }
 
 .thank-you button:hover {
-    background: #0000ff; /* cor-azul-hover */
+    background: #0000ff; 
     transform: translateY(-2px);
 }
 
